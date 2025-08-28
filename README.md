@@ -25,75 +25,100 @@ A secure command-line password manager built with Python, SQLAlchemy, and encryp
 Run the password manager:
 ```bash
 python3 cli.py
-```
+CLI Workflow
+Main Menu (Not Logged In)
+Login - Login with existing credentials
 
-## CLI Workflow
+Register - Create new user account
 
-### Main Menu (Not Logged In)
-1. **Login** - Login with existing credentials
-2. **Register** - Create new user account
-3. **Exit** - Exit the application
+Exit - Exit the application
 
-### Main Menu (Logged In)
-1. **Add Password** - Store a new password entry
-2. **View Passwords** - Display all stored passwords
-3. **Add Category** - Create new password category
-4. **Logout** - Return to login screen
+Main Menu (Logged In)
+Add Password - Store a new password entry
 
-## Functions
+View Passwords - Display all stored passwords
 
-### User Management
-- `register_user()` - Creates new user with username and master password
-- `login()` - Authenticates user and starts session
+Add Category - Create new password category
 
-### Password Management
-- `add_password()` - Encrypts and stores new password with site, username, and category
-- `view_passwords()` - Decrypts and displays all user passwords
+Logout - Return to login screen
 
-### Category Management
-- `add_category()` - Creates new password categories for organization
+Functions
+User Management
+register_user() - Creates new user with username and master password
 
-### Security Functions
-- `encrypt_password()` - Encrypts passwords using master password
-- `decrypt_password()` - Decrypts passwords for viewing
-- `generate_key()` - Creates encryption key from master password
+login() - Authenticates user and starts session
 
-### Utility Functions
-- `validate_input()` - Validates user input with minimum length requirements
-- `get_user_choice()` - Presents menu options and handles user selection
+Password Management
+add_password() - Encrypts and stores new password with site, username, and category
 
-## Database Schema
+view_passwords() - Decrypts and displays all user passwords
 
-### Users Table
-- `id` - Primary key
-- `username` - Unique username
-- `master_password` - Master password for encryption
-- `created_at` - Account creation timestamp
+Category Management
+add_category() - Creates new password categories for organization
 
-### Categories Table
-- `id` - Primary key
-- `name` - Category name (unique)
-- `description` - Category description
+Security Functions
+encrypt_password() - Encrypts passwords using master password
 
-### Passwords Table
-- `id` - Primary key
-- `site_name` - Website/service name
-- `username` - Account username
-- `encrypted_password` - Encrypted password
-- `user_id` - Foreign key to users table
-- `category_id` - Foreign key to categories table
-- `created_at` - Entry creation timestamp
+decrypt_password() - Decrypts passwords for viewing
 
-## Security Features
+generate_key() - Creates encryption key from master password
 
-- Passwords encrypted using Fernet symmetric encryption
-- Master password-based key derivation using PBKDF2
-- No plain text password storage
-- User input validation
+Utility Functions
+validate_input() - Validates user input with minimum length requirements
 
-## Dependencies
+get_user_choice() - Presents menu options and handles user selection
 
-- **SQLAlchemy** - ORM for database operations
-- **Alembic** - Database migration management
-- **Click** - CLI framework
-- **Cryptography** - Password encryption/decryption
+Database Schema
+Users Table
+id - Primary key
+
+username - Unique username
+
+master_password - Master password for encryption
+
+created_at - Account creation timestamp
+
+Categories Table
+id - Primary key
+
+name - Category name (unique)
+
+description - Category description
+
+Passwords Table
+id - Primary key
+
+site_name - Website/service name
+
+username - Account username
+
+encrypted_password - Encrypted password
+
+user_id - Foreign key to users table
+
+category_id - Foreign key to categories table
+
+created_at - Entry creation timestamp
+
+Security Features
+Passwords encrypted using Fernet symmetric encryption
+
+Master password-based key derivation using PBKDF2
+
+No plain text password storage
+
+User input validation
+
+Dependencies
+SQLAlchemy - ORM for database operations
+
+Alembic - Database migration management
+
+Click - CLI framework
+
+Cryptography - Password encryption/decryption
+
+License
+MIT License
+
+Copyright (c) 2025 Kenneth Kipkosgei
